@@ -15,7 +15,7 @@ namespace TicketManager
 {
     public partial class Main : Form
     {
-
+        //establish connection to sql database
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\v11.0;Initial Catalog=TicketManager;Integrated Security=True");
 
 
@@ -26,6 +26,11 @@ namespace TicketManager
 
         private void btnSaveClient_Click(object sender, EventArgs e)
         {
+        //Save new customer to customer db
+        //1.open connection to customerDB
+        //2.pass values from form to database
+        //3.Update datagridview and clear form
+        
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
@@ -55,7 +60,7 @@ namespace TicketManager
 
         }
 
-
+        //update datagridview customer database
         public void disp_data()
         {
             con.Open();
@@ -84,6 +89,8 @@ namespace TicketManager
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+        
+        //On live tickets, search by customer ID, auto-fill form fields with customer details
             string sql;
             sql = "Select * from customerDB where ID = '" + tbID.Text + "'";
             SqlCommand com = new SqlCommand(sql, con);
@@ -109,6 +116,7 @@ namespace TicketManager
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+        //add new task to datagridview
             dgvLiveTickets.Rows.Add(tbID.Text, tbClient.Text, tbAddress.Text, tbPostcode.Text, tbPhoneNo.Text, cbTech.Text, rtbDescription.Text, tbEstimate.Text, monthCalendar1.SelectionRange.Start.ToShortDateString());
 
             tbID.Text = "";
@@ -123,6 +131,7 @@ namespace TicketManager
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+        //add completed task to datagridview completed tasks
             foreach (DataGridViewRow selRow in dgvLiveTickets.SelectedRows.OfType<DataGridViewRow>().ToArray())
             {
                 dgvLiveTickets.Rows.Remove(selRow);
@@ -144,6 +153,7 @@ namespace TicketManager
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
+        //open excel and transfer data from datagridview
             Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
             Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
             Microsoft.Office.Interop.Excel._Worksheet 
