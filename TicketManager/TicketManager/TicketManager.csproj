@@ -99,6 +99,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TicketManagerDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="workersDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>workersDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +161,17 @@
     </None>
     <None Include="TicketManagerDataSet2.xss">
       <DependentUpon>TicketManagerDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="workersDataSet.xsc">
+      <DependentUpon>workersDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="workersDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>workersDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="workersDataSet.xss">
+      <DependentUpon>workersDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

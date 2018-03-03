@@ -10,9 +10,6 @@ namespace TicketManager
 {
     public partial class Main : Form
     {
-        //establish connection to sql database
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TicketManager.Properties.Settings.TicketManagerConnectionString"].ConnectionString);
-
         public Main()
         {
             InitializeComponent();
@@ -24,6 +21,7 @@ namespace TicketManager
             bool result = w.saveWorker(tbWorkerName.Text);
 
             disp_data();
+            displayWorkers();
 
             tbWorkerName.Text = "";
 
@@ -37,47 +35,41 @@ namespace TicketManager
             dgvCustomerDB.DataSource = w.getAllWorkers();
         }
 
-
         private void Main_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'ticketManagerDataSet2.techs' table. You can move, or remove it, as needed.
-            //this.techsTableAdapter.Fill(this.ticketManagerDataSet2.techs);
-
             disp_data();
-            cbTech.Text = "";
+            displayTasks();
+            displayWorkers();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void displayWorkers()
         {
+            Worker w = new Worker();
+            cbWorker.DataSource = w.getAllEnabledWorkers();
+            cbWorker.DisplayMember = "workerName";
+        }
 
-            //On live tickets, search by customer ID, auto-fill form fields with customer details
-            string sql;
-            sql = "Select * from customerDB where ID = '" + 1 + "'";
-            SqlCommand com = new SqlCommand(sql, con);
-            con.Open();
-            DataSet data = new DataSet();
-            var adapter = new SqlDataAdapter(com);
-            adapter.Fill(data);
-            int count = data.Tables[0].Rows.Count;
-            con.Close();
-            if (count > 0)
-            {
-                tbClient.Text = data.Tables[0].Rows[0]["client"].ToString();
-            }
-            else
-            {
-                MessageBox.Show("Invalid ID", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        private void displayTasks()
+        {
+            Task t = new Task();
+            dgvLiveTickets.DataSource = t.getAllActiveTasks();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //add new task to datagridview
-            dgvLiveTickets.Rows.Add(tbClient.Text, cbTech.Text, rtbDescription.Text, monthCalendar1.SelectionRange.Start.ToShortDateString());
+            Task t = new Task();
 
-            tbClient.Text = "";
-            rtbDescription.Text = "";
-            cbTech.Text = "";
+            int workerId = Worker.searchByName(cbWorker.Text);
+            bool result = t.saveTask(tbTaskName.Text, rtbTaskDescription.Text, mcTaskDateRange.SelectionStart, mcTaskDateRange.SelectionEnd, workerId);
+
+            displayTasks();
+
+            tbTaskName.Text = "";
+            tbWorkerName.ResetText();
+            rtbTaskDescription.Text = "";
+            cbWorker.Text = "";
+
+            MessageBox.Show("Record updated");
         }
 
         private void btnClose_Click(object sender, EventArgs e)
