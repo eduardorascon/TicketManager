@@ -201,10 +201,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="TicketManager.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="TicketManager_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>TicketManager.mdf</DependentUpon>
     </Content>
   </ItemGroup>
@@ -219,6 +219,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TicketManager.DataLayer\TicketManager.DataLayer.csproj">
+      <Project>{9eb90159-d854-4c71-8ec5-e4f7af98a4a6}</Project>
+      <Name>TicketManager.DataLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
