@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace TicketManager
 {
@@ -27,12 +28,12 @@ namespace TicketManager
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlcon = new SqlConnection(@"Data Source=(LocalDB)\v11.0;Initial Catalog=TicketManager;Integrated Security=True");
+            SqlConnection sqlcon = new SqlConnection(ConfigurationManager.ConnectionStrings["TicketManager.Properties.Settings.TicketManagerConnectionString"].ConnectionString);
             string query = "select * from users where username = '" + cbUsername.Text.Trim() + "' and password = '" + tbPassword.Text.Trim() + "'";
             SqlDataAdapter sda = new SqlDataAdapter(query, sqlcon);
             DataTable dtbl = new DataTable();
             sda.Fill(dtbl);
-            if(dtbl.Rows.Count == 1)
+            if (dtbl.Rows.Count == 1)
             {
 
                 MessageBox.Show("Welcome to Ticket Manager " + cbUsername.Text);
