@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Configuration;
+using TicketManager.DataLayer;
 
 namespace TicketManager
 {
@@ -21,22 +13,23 @@ namespace TicketManager
 
         private void Login_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'ticketManagerDataSet.users' table. You can move, or remove it, as needed.
-            this.usersTableAdapter.Fill(this.ticketManagerDataSet.users);
+            displayUsernames();
+        }
 
+        private void displayUsernames()
+        {
+            UserLogin l = new UserLogin();
+            cbUsername.DataSource = l.getAllUsernames();
+            cbUsername.DisplayMember = "username";
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlcon = new SqlConnection(ConfigurationManager.ConnectionStrings["TicketManager.Properties.Settings.TicketManagerConnectionString"].ConnectionString);
-            string query = "select * from users where username = '" + cbUsername.Text.Trim() + "' and password = '" + tbPassword.Text.Trim() + "'";
-            SqlDataAdapter sda = new SqlDataAdapter(query, sqlcon);
-            DataTable dtbl = new DataTable();
-            sda.Fill(dtbl);
-            if (dtbl.Rows.Count == 1)
+            UserLogin l = new UserLogin();
+            bool login = l.login(cbUsername.Text.Trim(), tbPassword.Text.Trim()).Rows.Count > 0;
+            if (login)
             {
-
-                MessageBox.Show("Welcome to Ticket Manager " + cbUsername.Text);
+                MessageBox.Show("Welcome to Ticket Manager ");
 
                 Main objMain = new Main();
                 this.Hide();

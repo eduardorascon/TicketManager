@@ -10,6 +10,57 @@ namespace TicketManager.DataLayer
         public static string connectionString = ConfigurationManager.ConnectionStrings["TicketManager.Properties.Settings.TicketManagerConnectionString"].ConnectionString;
     }
 
+    public class UserLogin
+    {
+        public DataTable login(string username, string password)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(Database.connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = @"select * from users where username = @username and password = @password";
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    return dt;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public object getAllUsernames()
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(Database.connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = @"select * from users";
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    return dt;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+    }
+
     public class Worker
     {
         public bool saveWorker(string workerName)
@@ -148,29 +199,6 @@ namespace TicketManager.DataLayer
             catch (Exception)
             {
                 return false;
-            }
-        }
-
-        public DataTable getAllTasks()
-        {
-            try
-            {
-                using (SqlConnection con = new SqlConnection(Database.connectionString))
-                {
-                    con.Open();
-                    SqlCommand cmd = con.CreateCommand();
-                    cmd.CommandText = @"select * from tasks";
-
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    return dt;
-                }
-            }
-            catch (Exception)
-            {
-                return null;
             }
         }
 
