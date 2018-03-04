@@ -36,7 +36,6 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.cbWorker = new System.Windows.Forms.ComboBox();
-            this.rtbTaskDescription = new System.Windows.Forms.RichTextBox();
             this.tbTaskName = new System.Windows.Forms.TextBox();
             this.mcTaskDateRange = new System.Windows.Forms.MonthCalendar();
             this.label8 = new System.Windows.Forms.Label();
@@ -60,6 +59,12 @@
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.workerName2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.workerIsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.tbTaskDescription = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLiveTickets)).BeginInit();
@@ -67,12 +72,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClosedTickets)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerDB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(-5, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
@@ -83,13 +92,15 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.tbTaskDescription);
+            this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.btnDeleteLive);
             this.tabPage1.Controls.Add(this.btnClose);
             this.tabPage1.Controls.Add(this.btnSave);
             this.tabPage1.Controls.Add(this.cbWorker);
-            this.tabPage1.Controls.Add(this.rtbTaskDescription);
             this.tabPage1.Controls.Add(this.tbTaskName);
             this.tabPage1.Controls.Add(this.mcTaskDateRange);
             this.tabPage1.Controls.Add(this.label8);
@@ -116,8 +127,8 @@
             // 
             // btnDeleteLive
             // 
-            this.btnDeleteLive.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteLive.Location = new System.Drawing.Point(588, 557);
+            this.btnDeleteLive.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteLive.Location = new System.Drawing.Point(1010, 557);
             this.btnDeleteLive.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteLive.Name = "btnDeleteLive";
             this.btnDeleteLive.Size = new System.Drawing.Size(177, 64);
@@ -128,8 +139,8 @@
             // 
             // btnClose
             // 
-            this.btnClose.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(410, 557);
+            this.btnClose.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(832, 557);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(169, 64);
@@ -140,13 +151,13 @@
             // 
             // btnSave
             // 
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(1254, 557);
+            this.btnSave.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(1195, 557);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(111, 64);
+            this.btnSave.Size = new System.Drawing.Size(170, 64);
             this.btnSave.TabIndex = 21;
-            this.btnSave.Text = "Guardar";
+            this.btnSave.Text = "Guardar tarea";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -162,16 +173,6 @@
             this.cbWorker.TabIndex = 6;
             this.cbWorker.ValueMember = "techName";
             // 
-            // rtbTaskDescription
-            // 
-            this.rtbTaskDescription.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbTaskDescription.Location = new System.Drawing.Point(817, 426);
-            this.rtbTaskDescription.Margin = new System.Windows.Forms.Padding(4);
-            this.rtbTaskDescription.Name = "rtbTaskDescription";
-            this.rtbTaskDescription.Size = new System.Drawing.Size(548, 123);
-            this.rtbTaskDescription.TabIndex = 7;
-            this.rtbTaskDescription.Text = "";
-            // 
             // tbTaskName
             // 
             this.tbTaskName.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -184,7 +185,7 @@
             // mcTaskDateRange
             // 
             this.mcTaskDateRange.CalendarDimensions = new System.Drawing.Size(3, 1);
-            this.mcTaskDateRange.Location = new System.Drawing.Point(795, 62);
+            this.mcTaskDateRange.Location = new System.Drawing.Point(781, 68);
             this.mcTaskDateRange.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.mcTaskDateRange.MaxSelectionCount = 10000;
             this.mcTaskDateRange.Name = "mcTaskDateRange";
@@ -227,17 +228,18 @@
             this.FechaFin,
             this.taskDuration,
             this.workerName});
-            this.dgvLiveTickets.Location = new System.Drawing.Point(35, 62);
+            this.dgvLiveTickets.Location = new System.Drawing.Point(14, 8);
             this.dgvLiveTickets.Margin = new System.Windows.Forms.Padding(4);
             this.dgvLiveTickets.Name = "dgvLiveTickets";
             this.dgvLiveTickets.ReadOnly = true;
             this.dgvLiveTickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLiveTickets.Size = new System.Drawing.Size(730, 487);
+            this.dgvLiveTickets.Size = new System.Drawing.Size(751, 362);
             this.dgvLiveTickets.TabIndex = 0;
             // 
             // tabPage2
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.btnExcel);
             this.tabPage2.Controls.Add(this.dgvClosedTickets);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -252,7 +254,7 @@
             // 
             this.btnExcel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExcel.BackgroundImage")));
             this.btnExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnExcel.Location = new System.Drawing.Point(1195, 63);
+            this.btnExcel.Location = new System.Drawing.Point(773, 8);
             this.btnExcel.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(224, 106);
@@ -266,17 +268,18 @@
             this.dgvClosedTickets.AllowUserToDeleteRows = false;
             this.dgvClosedTickets.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.dgvClosedTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClosedTickets.Location = new System.Drawing.Point(30, 63);
+            this.dgvClosedTickets.Location = new System.Drawing.Point(14, 8);
             this.dgvClosedTickets.Margin = new System.Windows.Forms.Padding(4);
             this.dgvClosedTickets.Name = "dgvClosedTickets";
             this.dgvClosedTickets.ReadOnly = true;
             this.dgvClosedTickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClosedTickets.Size = new System.Drawing.Size(1127, 507);
+            this.dgvClosedTickets.Size = new System.Drawing.Size(751, 362);
             this.dgvClosedTickets.TabIndex = 0;
             // 
             // tabPage3
             // 
-            this.tabPage3.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage3.BackColor = System.Drawing.Color.White;
+            this.tabPage3.Controls.Add(this.pictureBox3);
             this.tabPage3.Controls.Add(this.btnSaveClient);
             this.tabPage3.Controls.Add(this.tbWorkerName);
             this.tabPage3.Controls.Add(this.label20);
@@ -291,8 +294,8 @@
             // 
             // btnSaveClient
             // 
-            this.btnSaveClient.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveClient.Location = new System.Drawing.Point(1139, 185);
+            this.btnSaveClient.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveClient.Location = new System.Drawing.Point(1020, 83);
             this.btnSaveClient.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveClient.Name = "btnSaveClient";
             this.btnSaveClient.Size = new System.Drawing.Size(163, 55);
@@ -304,17 +307,17 @@
             // tbWorkerName
             // 
             this.tbWorkerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbWorkerName.Location = new System.Drawing.Point(949, 143);
+            this.tbWorkerName.Location = new System.Drawing.Point(778, 41);
             this.tbWorkerName.Margin = new System.Windows.Forms.Padding(4);
             this.tbWorkerName.Name = "tbWorkerName";
-            this.tbWorkerName.Size = new System.Drawing.Size(353, 34);
+            this.tbWorkerName.Size = new System.Drawing.Size(405, 34);
             this.tbWorkerName.TabIndex = 14;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(944, 110);
+            this.label20.Location = new System.Drawing.Point(773, 8);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(295, 29);
@@ -332,13 +335,14 @@
             this.workerName2,
             this.workerIsActive});
             this.dgvCustomerDB.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvCustomerDB.Location = new System.Drawing.Point(32, 65);
+            this.dgvCustomerDB.Location = new System.Drawing.Point(14, 8);
             this.dgvCustomerDB.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCustomerDB.Name = "dgvCustomerDB";
             this.dgvCustomerDB.ReadOnly = true;
             this.dgvCustomerDB.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCustomerDB.Size = new System.Drawing.Size(885, 389);
+            this.dgvCustomerDB.Size = new System.Drawing.Size(751, 362);
             this.dgvCustomerDB.TabIndex = 0;
+            this.dgvCustomerDB.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomerDB_CellContentClick);
             this.dgvCustomerDB.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvCustomerDB_DataBindingComplete);
             // 
             // Identificador
@@ -407,17 +411,81 @@
             // workerIsActive
             // 
             this.workerIsActive.DataPropertyName = "workerIsEnabled";
-            this.workerIsActive.HeaderText = "Colaborador activo";
+            this.workerIsActive.HeaderText = "Colaborador habilitado/deshabilitado";
             this.workerIsActive.Name = "workerIsActive";
             this.workerIsActive.ReadOnly = true;
             this.workerIsActive.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.workerIsActive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.workerIsActive.Width = 200;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(14, 523);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(300, 99);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(14, 523);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(300, 99);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 26;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(14, 523);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(300, 99);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 26;
+            this.pictureBox3.TabStop = false;
+            // 
+            // tbTaskDescription
+            // 
+            this.tbTaskDescription.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTaskDescription.Location = new System.Drawing.Point(795, 425);
+            this.tbTaskDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.tbTaskDescription.Multiline = true;
+            this.tbTaskDescription.Name = "tbTaskDescription";
+            this.tbTaskDescription.Size = new System.Drawing.Size(570, 124);
+            this.tbTaskDescription.TabIndex = 26;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(785, 38);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 29);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Fecha";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(1987, 904);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Estadísticas";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1499, 659);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -435,6 +503,9 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerDB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -452,7 +523,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cbWorker;
-        private System.Windows.Forms.RichTextBox rtbTaskDescription;
         private System.Windows.Forms.TextBox tbTaskName;
         private System.Windows.Forms.MonthCalendar mcTaskDateRange;
         private System.Windows.Forms.Button btnExcel;
@@ -472,5 +542,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn workerName2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn workerIsActive;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbTaskDescription;
+        private System.Windows.Forms.TabPage tabPage4;
     }
 }

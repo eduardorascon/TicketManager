@@ -16,8 +16,8 @@ namespace TicketManager
             Worker w = new Worker();
             bool result = w.saveWorker(tbWorkerName.Text);
 
-            disp_data();
-            displayWorkers();
+            displayAllWorkers();
+            displayEnabledWorkers();
 
             tbWorkerName.Text = "";
 
@@ -25,7 +25,7 @@ namespace TicketManager
         }
 
         //update datagridview customer database
-        public void disp_data()
+        public void displayAllWorkers()
         {
             Worker w = new Worker();
             dgvCustomerDB.DataSource = w.getAllWorkers();
@@ -33,13 +33,13 @@ namespace TicketManager
 
         private void Main_Load(object sender, EventArgs e)
         {
-            disp_data();
             displayOpenTasks();
             displayClosedTasks();
-            displayWorkers();
+            displayEnabledWorkers();
+            displayAllWorkers();
         }
 
-        private void displayWorkers()
+        private void displayEnabledWorkers()
         {
             Worker w = new Worker();
             cbWorker.DataSource = w.getAllEnabledWorkers();
@@ -51,13 +51,13 @@ namespace TicketManager
             Task t = new Task();
 
             int workerId = Worker.searchByName(cbWorker.Text);
-            bool result = t.saveTask(tbTaskName.Text, rtbTaskDescription.Text, mcTaskDateRange.SelectionStart, mcTaskDateRange.SelectionEnd, workerId);
+            bool result = t.saveTask(tbTaskName.Text, tbTaskDescription.Text, mcTaskDateRange.SelectionStart, mcTaskDateRange.SelectionEnd, workerId);
 
             displayOpenTasks();
 
             tbTaskName.Text = "";
             tbWorkerName.ResetText();
-            rtbTaskDescription.Text = "";
+            tbTaskDescription.Text = "";
             cbWorker.Text = "";
 
             MessageBox.Show("Record updated");
@@ -80,7 +80,6 @@ namespace TicketManager
 
             deleteTask(taskToDelete);
             displayOpenTasks();
-            //displayClosedTasks();
         }
 
         private void displayOpenTasks()
@@ -105,6 +104,12 @@ namespace TicketManager
         {
             Task t = new Task();
             t.deleteTask(taskToDelete);
+        }
+
+        private void updateWorkerStatus(int workerToUpdate, bool status)
+        {
+            Worker w = new Worker();
+            w.updateWorker(workerToUpdate, status);
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
@@ -148,6 +153,19 @@ namespace TicketManager
             //{
             //    dgvCustomerDB.Columns.Insert(columnIndex, uninstallButtonColumn);
             //}
+        }
+
+        private void dgvCustomerDB_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowindex = dgvCustomerDB.CurrentCell.RowIndex;
+            int colindex = dgvCustomerDB.CurrentCell.ColumnIndex;
+
+            int workerToUpdate = int.Parse(dgvCustomerDB.Rows[rowindex].Cells[0].Value.ToString());
+            bool status = (bool)dgvCustomerDB.Rows[rowindex].Cells[2].Value;
+            updateWorkerStatus(workerToUpdate, status);
+
+            displayAllWorkers();
+            displayEnabledWorkers();
         }
     }
 }

@@ -93,7 +93,7 @@ namespace TicketManager.DataLayer
                 {
                     con.Open();
                     SqlCommand cmd = con.CreateCommand();
-                    cmd.CommandText = @"select * from workers";
+                    cmd.CommandText = @"select * from workers order by Id";
 
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
@@ -148,6 +148,28 @@ namespace TicketManager.DataLayer
             catch (Exception)
             {
                 return null;
+            }
+        }
+
+        public bool updateWorker(int workerToUpate, bool status)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(Database.connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = @"update workers set workerIsEnabled = @status where Id = @workerId";
+                    cmd.Parameters.AddWithValue("@workerId", workerToUpate);
+                    cmd.Parameters.AddWithValue("@status", !status);
+
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }
