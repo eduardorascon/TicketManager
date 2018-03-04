@@ -12,19 +12,3 @@ c:\users\admin\documents\visual studio 2015\Projects\TicketManager\TicketManager
 c:\users\admin\documents\visual studio 2015\Projects\TicketManager\TicketManager\obj\Debug\Interop.Office.dll
 c:\users\admin\documents\visual studio 2015\Projects\TicketManager\TicketManager\obj\Debug\Interop.VBIDE.dll
 c:\users\admin\documents\visual studio 2015\Projects\TicketManager\TicketManager\obj\Debug\TicketManager.csproj.ResolveComReference.cache
-C:\repos\TicketManager\TicketManager\TicketManager\bin\Debug\TicketManager.mdf
-C:\repos\TicketManager\TicketManager\TicketManager\bin\Debug\TicketManager_log.ldf
-C:\repos\TicketManager\TicketManager\TicketManager\bin\Debug\TicketManager.exe.config
-C:\repos\TicketManager\TicketManager\TicketManager\bin\Debug\TicketManager.exe
-C:\repos\TicketManager\TicketManager\TicketManager\bin\Debug\TicketManager.pdb
-C:\repos\TicketManager\TicketManager\TicketManager\bin\Debug\TicketManager.DataLayer.dll
-C:\repos\TicketManager\TicketManager\TicketManager\bin\Debug\TicketManager.DataLayer.pdb
-C:\repos\TicketManager\TicketManager\TicketManager\obj\Debug\TicketManager.csprojResolveAssemblyReference.cache
-C:\repos\TicketManager\TicketManager\TicketManager\obj\Debug\Interop.VBIDE.dll
-C:\repos\TicketManager\TicketManager\TicketManager\obj\Debug\TicketManager.csproj.ResolveComReference.cache
-C:\repos\TicketManager\TicketManager\TicketManager\obj\Debug\TicketManager.Login.resources
-C:\repos\TicketManager\TicketManager\TicketManager\obj\Debug\TicketManager.Main.resources
-C:\repos\TicketManager\TicketManager\TicketManager\obj\Debug\TicketManager.Properties.Resources.resources
-C:\repos\TicketManager\TicketManager\TicketManager\obj\Debug\TicketManager.csproj.GenerateResource.Cache
-C:\repos\TicketManager\TicketManager\TicketManager\obj\Debug\TicketManager.exe
-C:\repos\TicketManager\TicketManager\TicketManager\obj\Debug\TicketManager.pdb

@@ -40,26 +40,14 @@
             this.rtbTaskDescription = new System.Windows.Forms.RichTextBox();
             this.tbTaskName = new System.Windows.Forms.TextBox();
             this.mcTaskDateRange = new System.Windows.Forms.MonthCalendar();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvLiveTickets = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnExcel = new System.Windows.Forms.Button();
-            this.tbTotal = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dgvClosedTickets = new System.Windows.Forms.DataGridView();
-            this.CustID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Add = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TechName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnSaveClient = new System.Windows.Forms.Button();
             this.tbWorkerName = new System.Windows.Forms.TextBox();
@@ -106,7 +94,6 @@
             this.tabPage1.Controls.Add(this.rtbTaskDescription);
             this.tabPage1.Controls.Add(this.tbTaskName);
             this.tabPage1.Controls.Add(this.mcTaskDateRange);
-            this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label1);
@@ -200,23 +187,12 @@
             // mcTaskDateRange
             // 
             this.mcTaskDateRange.CalendarDimensions = new System.Drawing.Size(3, 1);
-            this.mcTaskDateRange.Location = new System.Drawing.Point(801, 67);
+            this.mcTaskDateRange.Location = new System.Drawing.Point(795, 62);
             this.mcTaskDateRange.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.mcTaskDateRange.MaxSelectionCount = 10000;
             this.mcTaskDateRange.Name = "mcTaskDateRange";
             this.mcTaskDateRange.ShowToday = false;
             this.mcTaskDateRange.TabIndex = 11;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(1273, 187);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(148, 29);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Description";
             // 
             // label8
             // 
@@ -262,6 +238,7 @@
             this.dgvLiveTickets.Margin = new System.Windows.Forms.Padding(4);
             this.dgvLiveTickets.Name = "dgvLiveTickets";
             this.dgvLiveTickets.ReadOnly = true;
+            this.dgvLiveTickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLiveTickets.Size = new System.Drawing.Size(730, 487);
             this.dgvLiveTickets.TabIndex = 0;
             // 
@@ -269,8 +246,6 @@
             // 
             this.tabPage2.BackColor = System.Drawing.Color.SteelBlue;
             this.tabPage2.Controls.Add(this.btnExcel);
-            this.tabPage2.Controls.Add(this.tbTotal);
-            this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.dgvClosedTickets);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -285,33 +260,13 @@
             // 
             this.btnExcel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExcel.BackgroundImage")));
             this.btnExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnExcel.Location = new System.Drawing.Point(1249, 201);
+            this.btnExcel.Location = new System.Drawing.Point(1195, 63);
             this.btnExcel.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(224, 106);
             this.btnExcel.TabIndex = 4;
             this.btnExcel.UseVisualStyleBackColor = true;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
-            // 
-            // tbTotal
-            // 
-            this.tbTotal.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTotal.Location = new System.Drawing.Point(1272, 360);
-            this.tbTotal.Margin = new System.Windows.Forms.Padding(4);
-            this.tbTotal.Name = "tbTotal";
-            this.tbTotal.Size = new System.Drawing.Size(201, 36);
-            this.tbTotal.TabIndex = 3;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1266, 328);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(190, 29);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "Total Invoiced:";
             // 
             // label11
             // 
@@ -326,69 +281,16 @@
             // 
             // dgvClosedTickets
             // 
+            this.dgvClosedTickets.AllowUserToAddRows = false;
+            this.dgvClosedTickets.AllowUserToDeleteRows = false;
             this.dgvClosedTickets.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.dgvClosedTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClosedTickets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CustID,
-            this.ClientName,
-            this.Add,
-            this.Post,
-            this.PhoneNo,
-            this.TechName,
-            this.Desc,
-            this.Price,
-            this.date});
             this.dgvClosedTickets.Location = new System.Drawing.Point(30, 63);
             this.dgvClosedTickets.Margin = new System.Windows.Forms.Padding(4);
             this.dgvClosedTickets.Name = "dgvClosedTickets";
-            this.dgvClosedTickets.Size = new System.Drawing.Size(1197, 437);
+            this.dgvClosedTickets.ReadOnly = true;
+            this.dgvClosedTickets.Size = new System.Drawing.Size(1127, 507);
             this.dgvClosedTickets.TabIndex = 0;
-            // 
-            // CustID
-            // 
-            this.CustID.HeaderText = "ID";
-            this.CustID.Name = "CustID";
-            // 
-            // ClientName
-            // 
-            this.ClientName.HeaderText = "Client";
-            this.ClientName.Name = "ClientName";
-            // 
-            // Add
-            // 
-            this.Add.HeaderText = "Address";
-            this.Add.Name = "Add";
-            // 
-            // Post
-            // 
-            this.Post.HeaderText = "Postcode";
-            this.Post.Name = "Post";
-            // 
-            // PhoneNo
-            // 
-            this.PhoneNo.HeaderText = "Phone";
-            this.PhoneNo.Name = "PhoneNo";
-            // 
-            // TechName
-            // 
-            this.TechName.HeaderText = "Tech";
-            this.TechName.Name = "TechName";
-            // 
-            // Desc
-            // 
-            this.Desc.HeaderText = "Description";
-            this.Desc.Name = "Desc";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            // 
-            // date
-            // 
-            this.date.HeaderText = "Column1";
-            this.date.Name = "date";
-            this.date.Visible = false;
             // 
             // tabPage3
             // 
@@ -500,7 +402,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(1420, 659);
+            this.ClientSize = new System.Drawing.Size(1499, 659);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
@@ -531,7 +433,6 @@
         private System.Windows.Forms.DataGridView dgvLiveTickets;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
@@ -543,8 +444,6 @@
         private System.Windows.Forms.TextBox tbTaskName;
         private System.Windows.Forms.MonthCalendar mcTaskDateRange;
         private System.Windows.Forms.Button btnExcel;
-        private System.Windows.Forms.TextBox tbTotal;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dgvClosedTickets;
         private System.Windows.Forms.Button btnSaveClient;
@@ -557,15 +456,6 @@
         private System.Windows.Forms.BindingSource customerDBBindingSource;
         private TicketManagerDataSet1TableAdapters.customerDBTableAdapter customerDBTableAdapter;
         private TicketManagerDataSet2 ticketManagerDataSet2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClientName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Add;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Post;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TechName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Desc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.Label label2;
     }
 }

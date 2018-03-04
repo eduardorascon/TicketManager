@@ -130,6 +130,27 @@ namespace TicketManager.DataLayer
             }
         }
 
+        public bool deleteTask(int taskToDelete)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(Database.connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = @"update tasks set taskIsDeleted = 1 where Id = @taskId";
+                    cmd.Parameters.AddWithValue("@taskId", taskToDelete);
+
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public DataTable getAllTasks()
         {
             try
@@ -161,7 +182,7 @@ namespace TicketManager.DataLayer
                 {
                     con.Open();
                     SqlCommand cmd = con.CreateCommand();
-                    cmd.CommandText = @"select * from tasks where taskIsActive = 1";
+                    cmd.CommandText = @"select * from active_tasks_view order by taskName";
 
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
@@ -173,6 +194,50 @@ namespace TicketManager.DataLayer
             catch (Exception)
             {
                 return null;
+            }
+        }
+
+        public DataTable getAllClosedTasks()
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(Database.connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = @"select * from closed_tasks_view order by taskName";
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    return dt;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public bool closeTask(int taskToClose)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(Database.connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = @"update tasks set taskIsActive = 0, taskRealEndDate = GETDATE() where Id = @taskId";
+                    cmd.Parameters.AddWithValue("@taskId", taskToClose);
+
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }

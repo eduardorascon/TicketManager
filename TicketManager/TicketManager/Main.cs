@@ -38,7 +38,8 @@ namespace TicketManager
         private void Main_Load(object sender, EventArgs e)
         {
             disp_data();
-            displayTasks();
+            displayOpenTasks();
+            displayClosedTasks();
             displayWorkers();
         }
 
@@ -49,12 +50,6 @@ namespace TicketManager
             cbWorker.DisplayMember = "workerName";
         }
 
-        private void displayTasks()
-        {
-            Task t = new Task();
-            dgvLiveTickets.DataSource = t.getAllActiveTasks();
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             Task t = new Task();
@@ -62,7 +57,7 @@ namespace TicketManager
             int workerId = Worker.searchByName(cbWorker.Text);
             bool result = t.saveTask(tbTaskName.Text, rtbTaskDescription.Text, mcTaskDateRange.SelectionStart, mcTaskDateRange.SelectionEnd, workerId);
 
-            displayTasks();
+            displayOpenTasks();
 
             tbTaskName.Text = "";
             tbWorkerName.ResetText();
@@ -74,20 +69,46 @@ namespace TicketManager
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            //add completed task to datagridview completed tasks
-            foreach (DataGridViewRow selRow in dgvLiveTickets.SelectedRows.OfType<DataGridViewRow>().ToArray())
-            {
-                dgvLiveTickets.Rows.Remove(selRow);
-                dgvClosedTickets.Rows.Add(selRow);
-            }
+            int rowindex = dgvLiveTickets.CurrentCell.RowIndex;
+            int taskToClose = int.Parse(dgvLiveTickets.Rows[rowindex].Cells[0].Value.ToString());
+
+            closeTask(taskToClose);
+            displayOpenTasks();
+            displayClosedTasks();
         }
 
         private void btnDeleteLive_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow selRow in dgvLiveTickets.SelectedRows.OfType<DataGridViewRow>().ToArray())
-            {
-                dgvLiveTickets.Rows.Remove(selRow);
-            }
+            int rowindex = dgvLiveTickets.CurrentCell.RowIndex;
+            int taskToDelete = int.Parse(dgvLiveTickets.Rows[rowindex].Cells[0].Value.ToString());
+
+            deleteTask(taskToDelete);
+            displayOpenTasks();
+            //displayClosedTasks();
+        }
+
+        private void displayOpenTasks()
+        {
+            Task t = new Task();
+            dgvLiveTickets.DataSource = t.getAllActiveTasks();
+        }
+
+        private void displayClosedTasks()
+        {
+            Task t = new Task();
+            dgvClosedTickets.DataSource = t.getAllClosedTasks();
+        }
+
+        private void closeTask(int taskToClose)
+        {
+            Task t = new Task();
+            t.closeTask(taskToClose);
+        }
+
+        private void deleteTask(int taskToDelete)
+        {
+            Task t = new Task();
+            t.deleteTask(taskToDelete);
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
@@ -118,19 +139,6 @@ namespace TicketManager
             workbook.SaveAs("c:\\ClosedTickets.xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing,
                 Type.Missing, Type.Missing);
 
-        }
-
-        private void btnDeleteClosed_Click(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow selRow in dgvClosedTickets.SelectedRows.OfType<DataGridViewRow>().ToArray())
-            {
-                dgvClosedTickets.Rows.Remove(selRow);
-
-
-                tbTotal.Text = (from DataGridViewRow row in dgvClosedTickets.Rows
-                                where row.Cells[7].FormattedValue.ToString() != string.Empty
-                                select Convert.ToDouble(row.Cells[7].FormattedValue)).Sum().ToString();
-            }
         }
 
         private void dgvCustomerDB_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
