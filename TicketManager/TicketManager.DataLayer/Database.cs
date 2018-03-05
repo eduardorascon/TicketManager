@@ -291,4 +291,64 @@ namespace TicketManager.DataLayer
             }
         }
     }
+
+    public class Graph
+    {
+        public int getTotalTasksNumber()
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(Database.connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = @"select count(*) from tasks where taskIsDeleted = 0";
+
+                    return (int)cmd.ExecuteScalar();
+                }
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+
+        public int getActiveTasksNumber()
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(Database.connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = @"select count(*) from tasks where taskIsDeleted = 0 and taskIsActive = 1";
+
+                    return (int)cmd.ExecuteScalar();
+                }
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        public int getClosedTasksNumber()
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(Database.connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = @"select count(*) from tasks where taskIsDeleted = 0 and taskIsActive = 0";
+
+                    return (int)cmd.ExecuteScalar();
+                }
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+
+        }
+    }
 }

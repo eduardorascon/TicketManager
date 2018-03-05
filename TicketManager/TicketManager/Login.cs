@@ -29,7 +29,7 @@ namespace TicketManager
             bool login = l.login(cbUsername.Text.Trim(), tbPassword.Text.Trim()).Rows.Count > 0;
             if (login)
             {
-                MessageBox.Show("Welcome to Ticket Manager ");
+                MessageBox.Show("Bienvenido");
 
                 Main objMain = new Main();
                 this.Hide();
@@ -37,7 +37,7 @@ namespace TicketManager
             }
             else
             {
-                MessageBox.Show("Incorrect username or password entered!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Datos de ingreso incorrectos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

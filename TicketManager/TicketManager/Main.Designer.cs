@@ -65,6 +65,10 @@
             this.tbTaskDescription = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.circularProgressBar1 = new CircularProgressBar.CircularProgressBar();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.circularProgressBar2 = new CircularProgressBar.CircularProgressBar();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLiveTickets)).BeginInit();
@@ -75,6 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -118,7 +123,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(790, 384);
+            this.label2.Location = new System.Drawing.Point(778, 357);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(152, 29);
@@ -128,7 +133,7 @@
             // btnDeleteLive
             // 
             this.btnDeleteLive.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteLive.Location = new System.Drawing.Point(1010, 557);
+            this.btnDeleteLive.Location = new System.Drawing.Point(960, 522);
             this.btnDeleteLive.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteLive.Name = "btnDeleteLive";
             this.btnDeleteLive.Size = new System.Drawing.Size(177, 64);
@@ -140,7 +145,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(832, 557);
+            this.btnClose.Location = new System.Drawing.Point(783, 523);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(169, 64);
@@ -152,7 +157,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(1195, 557);
+            this.btnSave.Location = new System.Drawing.Point(1183, 523);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(170, 64);
@@ -166,7 +171,7 @@
             this.cbWorker.DisplayMember = "techName";
             this.cbWorker.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbWorker.FormattingEnabled = true;
-            this.cbWorker.Location = new System.Drawing.Point(956, 333);
+            this.cbWorker.Location = new System.Drawing.Point(944, 306);
             this.cbWorker.Margin = new System.Windows.Forms.Padding(4);
             this.cbWorker.Name = "cbWorker";
             this.cbWorker.Size = new System.Drawing.Size(409, 37);
@@ -176,7 +181,7 @@
             // tbTaskName
             // 
             this.tbTaskName.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTaskName.Location = new System.Drawing.Point(956, 289);
+            this.tbTaskName.Location = new System.Drawing.Point(944, 262);
             this.tbTaskName.Margin = new System.Windows.Forms.Padding(4);
             this.tbTaskName.Name = "tbTaskName";
             this.tbTaskName.Size = new System.Drawing.Size(409, 36);
@@ -185,7 +190,7 @@
             // mcTaskDateRange
             // 
             this.mcTaskDateRange.CalendarDimensions = new System.Drawing.Size(3, 1);
-            this.mcTaskDateRange.Location = new System.Drawing.Point(781, 68);
+            this.mcTaskDateRange.Location = new System.Drawing.Point(778, 48);
             this.mcTaskDateRange.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.mcTaskDateRange.MaxSelectionCount = 10000;
             this.mcTaskDateRange.Name = "mcTaskDateRange";
@@ -196,7 +201,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(789, 336);
+            this.label8.Location = new System.Drawing.Point(777, 309);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(159, 29);
@@ -207,7 +212,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(790, 292);
+            this.label4.Location = new System.Drawing.Point(778, 265);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 29);
@@ -343,7 +348,6 @@
             this.dgvCustomerDB.Size = new System.Drawing.Size(751, 362);
             this.dgvCustomerDB.TabIndex = 0;
             this.dgvCustomerDB.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomerDB_CellContentClick);
-            this.dgvCustomerDB.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvCustomerDB_DataBindingComplete);
             // 
             // Identificador
             // 
@@ -454,7 +458,7 @@
             // tbTaskDescription
             // 
             this.tbTaskDescription.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTaskDescription.Location = new System.Drawing.Point(795, 425);
+            this.tbTaskDescription.Location = new System.Drawing.Point(783, 390);
             this.tbTaskDescription.Margin = new System.Windows.Forms.Padding(4);
             this.tbTaskDescription.Multiline = true;
             this.tbTaskDescription.Name = "tbTaskDescription";
@@ -465,7 +469,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(785, 38);
+            this.label1.Location = new System.Drawing.Point(773, 8);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 29);
@@ -474,12 +478,103 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.circularProgressBar2);
+            this.tabPage4.Controls.Add(this.label5);
+            this.tabPage4.Controls.Add(this.label3);
+            this.tabPage4.Controls.Add(this.circularProgressBar1);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(1987, 904);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Estadísticas";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // circularProgressBar1
+            // 
+            this.circularProgressBar1.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.circularProgressBar1.AnimationSpeed = 500;
+            this.circularProgressBar1.BackColor = System.Drawing.Color.Transparent;
+            this.circularProgressBar1.Font = new System.Drawing.Font("Arial Narrow", 22F, System.Drawing.FontStyle.Bold);
+            this.circularProgressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar1.InnerColor = System.Drawing.Color.White;
+            this.circularProgressBar1.InnerMargin = 2;
+            this.circularProgressBar1.InnerWidth = -1;
+            this.circularProgressBar1.Location = new System.Drawing.Point(242, 96);
+            this.circularProgressBar1.MarqueeAnimationSpeed = 2000;
+            this.circularProgressBar1.Name = "circularProgressBar1";
+            this.circularProgressBar1.OuterColor = System.Drawing.Color.LightGray;
+            this.circularProgressBar1.OuterMargin = -50;
+            this.circularProgressBar1.OuterWidth = 50;
+            this.circularProgressBar1.ProgressColor = System.Drawing.Color.CornflowerBlue;
+            this.circularProgressBar1.ProgressWidth = 40;
+            this.circularProgressBar1.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.circularProgressBar1.Size = new System.Drawing.Size(327, 320);
+            this.circularProgressBar1.StartAngle = 270;
+            this.circularProgressBar1.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar1.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.circularProgressBar1.SubscriptText = "";
+            this.circularProgressBar1.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar1.SuperscriptMargin = new System.Windows.Forms.Padding(0);
+            this.circularProgressBar1.SuperscriptText = "";
+            this.circularProgressBar1.TabIndex = 0;
+            this.circularProgressBar1.Text = "3";
+            this.circularProgressBar1.TextMargin = new System.Windows.Forms.Padding(2, 2, 0, 0);
+            this.circularProgressBar1.Value = 50;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(800, 438);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(201, 29);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Tareas cerradas";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(304, 438);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(193, 29);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Tareas abiertas";
+            // 
+            // circularProgressBar2
+            // 
+            this.circularProgressBar2.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.circularProgressBar2.AnimationSpeed = 500;
+            this.circularProgressBar2.BackColor = System.Drawing.Color.Transparent;
+            this.circularProgressBar2.Font = new System.Drawing.Font("Arial Narrow", 22F, System.Drawing.FontStyle.Bold);
+            this.circularProgressBar2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar2.InnerColor = System.Drawing.Color.White;
+            this.circularProgressBar2.InnerMargin = 2;
+            this.circularProgressBar2.InnerWidth = -1;
+            this.circularProgressBar2.Location = new System.Drawing.Point(735, 96);
+            this.circularProgressBar2.MarqueeAnimationSpeed = 2000;
+            this.circularProgressBar2.Name = "circularProgressBar2";
+            this.circularProgressBar2.OuterColor = System.Drawing.Color.LightGray;
+            this.circularProgressBar2.OuterMargin = -50;
+            this.circularProgressBar2.OuterWidth = 50;
+            this.circularProgressBar2.ProgressColor = System.Drawing.Color.CornflowerBlue;
+            this.circularProgressBar2.ProgressWidth = 40;
+            this.circularProgressBar2.RightToLeftLayout = true;
+            this.circularProgressBar2.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.circularProgressBar2.Size = new System.Drawing.Size(320, 320);
+            this.circularProgressBar2.StartAngle = 270;
+            this.circularProgressBar2.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar2.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.circularProgressBar2.SubscriptText = "";
+            this.circularProgressBar2.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar2.SuperscriptMargin = new System.Windows.Forms.Padding(0);
+            this.circularProgressBar2.SuperscriptText = "";
+            this.circularProgressBar2.TabIndex = 11;
+            this.circularProgressBar2.Text = "3";
+            this.circularProgressBar2.TextMargin = new System.Windows.Forms.Padding(2, 2, 0, 0);
+            this.circularProgressBar2.Value = 50;
             // 
             // Main
             // 
@@ -490,6 +585,7 @@
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Task Manager";
@@ -506,6 +602,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -548,5 +646,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbTaskDescription;
         private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private CircularProgressBar.CircularProgressBar circularProgressBar1;
+        private CircularProgressBar.CircularProgressBar circularProgressBar2;
     }
 }

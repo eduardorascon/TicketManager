@@ -21,7 +21,7 @@ namespace TicketManager
 
             tbWorkerName.Text = "";
 
-            MessageBox.Show("Record updated");
+            MessageBox.Show("Registro agregado");
         }
 
         //update datagridview customer database
@@ -37,6 +37,26 @@ namespace TicketManager
             displayClosedTasks();
             displayEnabledWorkers();
             displayAllWorkers();
+
+            updateGraphs();
+        }
+
+        private void updateGraphs()
+        {
+            Graph g = new Graph();
+            int total = g.getTotalTasksNumber();
+            int active = g.getActiveTasksNumber();
+            int closed = g.getClosedTasksNumber();
+
+            circularProgressBar1.Minimum = 0;
+            circularProgressBar1.Maximum = total;
+            circularProgressBar1.Value = active;
+            circularProgressBar1.Text = active + " de" + total;
+
+            circularProgressBar2.Minimum = 0;
+            circularProgressBar2.Maximum = total;
+            circularProgressBar2.Value = closed;
+            circularProgressBar2.Text = closed + " de " + total;
         }
 
         private void displayEnabledWorkers()
@@ -58,9 +78,10 @@ namespace TicketManager
             tbTaskName.Text = "";
             tbWorkerName.ResetText();
             tbTaskDescription.Text = "";
-            cbWorker.Text = "";
 
-            MessageBox.Show("Record updated");
+            updateGraphs();
+
+            MessageBox.Show("Registro agregado");
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -71,6 +92,8 @@ namespace TicketManager
             closeTask(taskToClose);
             displayOpenTasks();
             displayClosedTasks();
+
+            updateGraphs();
         }
 
         private void btnDeleteLive_Click(object sender, EventArgs e)
@@ -140,19 +163,6 @@ namespace TicketManager
             workbook.SaveAs("c:\\ClosedTickets.xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing,
                 Type.Missing, Type.Missing);
 
-        }
-
-        private void dgvCustomerDB_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            //DataGridViewButtonColumn uninstallButtonColumn = new DataGridViewButtonColumn();
-            //uninstallButtonColumn.Name = "enable_worker_column";
-            //uninstallButtonColumn.Text = "Habilitar/Deshabilitar";
-            //uninstallButtonColumn.UseColumnTextForButtonValue = true;
-            //int columnIndex = 2;
-            //if (dgvCustomerDB.Columns["uninstall_column"] == null)
-            //{
-            //    dgvCustomerDB.Columns.Insert(columnIndex, uninstallButtonColumn);
-            //}
         }
 
         private void dgvCustomerDB_CellContentClick(object sender, DataGridViewCellEventArgs e)
