@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbTaskDescription = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnDeleteLive = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -41,14 +44,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvLiveTickets = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnExcel = new System.Windows.Forms.Button();
-            this.dgvClosedTickets = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnSaveClient = new System.Windows.Forms.Button();
-            this.tbWorkerName = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.dgvCustomerDB = new System.Windows.Forms.DataGridView();
             this.Identificador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.taskName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.taskDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,30 +51,43 @@
             this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.taskDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.workerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnExcel = new System.Windows.Forms.Button();
+            this.dgvClosedTickets = new System.Windows.Forms.DataGridView();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.circularProgressBar2 = new CircularProgressBar.CircularProgressBar();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.circularProgressBar1 = new CircularProgressBar.CircularProgressBar();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnSaveClient = new System.Windows.Forms.Button();
+            this.tbWorkerName = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.dgvCustomerDB = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.workerName2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.workerIsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.tbTaskDescription = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.circularProgressBar1 = new CircularProgressBar.CircularProgressBar();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.circularProgressBar2 = new CircularProgressBar.CircularProgressBar();
+            this.Id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Taks2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskDescription2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskStartDate2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskDuration2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskRealEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.workerName3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLiveTickets)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClosedTickets)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerDB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClosedTickets)).BeginInit();
             this.tabPage4.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerDB)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -118,6 +126,38 @@
             this.tabPage1.Size = new System.Drawing.Size(1987, 904);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Tareas abiertas";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(773, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 29);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Fecha";
+            // 
+            // tbTaskDescription
+            // 
+            this.tbTaskDescription.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTaskDescription.Location = new System.Drawing.Point(783, 390);
+            this.tbTaskDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.tbTaskDescription.Multiline = true;
+            this.tbTaskDescription.Name = "tbTaskDescription";
+            this.tbTaskDescription.Size = new System.Drawing.Size(570, 124);
+            this.tbTaskDescription.TabIndex = 26;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(14, 523);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(300, 99);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -241,6 +281,55 @@
             this.dgvLiveTickets.Size = new System.Drawing.Size(751, 362);
             this.dgvLiveTickets.TabIndex = 0;
             // 
+            // Identificador
+            // 
+            this.Identificador.DataPropertyName = "Id";
+            this.Identificador.HeaderText = "Identificador";
+            this.Identificador.Name = "Identificador";
+            this.Identificador.ReadOnly = true;
+            // 
+            // taskName
+            // 
+            this.taskName.DataPropertyName = "taskName";
+            this.taskName.HeaderText = "Tarea";
+            this.taskName.Name = "taskName";
+            this.taskName.ReadOnly = true;
+            // 
+            // taskDescription
+            // 
+            this.taskDescription.DataPropertyName = "taskDescription";
+            this.taskDescription.HeaderText = "Descripción";
+            this.taskDescription.Name = "taskDescription";
+            this.taskDescription.ReadOnly = true;
+            // 
+            // FechaInicio
+            // 
+            this.FechaInicio.DataPropertyName = "taskStartDate";
+            this.FechaInicio.HeaderText = "Fecha inicio";
+            this.FechaInicio.Name = "FechaInicio";
+            this.FechaInicio.ReadOnly = true;
+            // 
+            // FechaFin
+            // 
+            this.FechaFin.DataPropertyName = "taskEndDate";
+            this.FechaFin.HeaderText = "Fecha final";
+            this.FechaFin.Name = "FechaFin";
+            this.FechaFin.ReadOnly = true;
+            // 
+            // taskDuration
+            // 
+            this.taskDuration.DataPropertyName = "taskDuration";
+            this.taskDuration.HeaderText = "Duración estimada";
+            this.taskDuration.Name = "taskDuration";
+            this.taskDuration.ReadOnly = true;
+            // 
+            // workerName
+            // 
+            this.workerName.DataPropertyName = "workerName";
+            this.workerName.HeaderText = "Colaborador";
+            this.workerName.Name = "workerName";
+            this.workerName.ReadOnly = true;
+            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
@@ -254,6 +343,17 @@
             this.tabPage2.Size = new System.Drawing.Size(1987, 904);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tareas cerradas";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(14, 523);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(300, 99);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 26;
+            this.pictureBox2.TabStop = false;
             // 
             // btnExcel
             // 
@@ -273,6 +373,15 @@
             this.dgvClosedTickets.AllowUserToDeleteRows = false;
             this.dgvClosedTickets.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.dgvClosedTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClosedTickets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id2,
+            this.Taks2,
+            this.taskDescription2,
+            this.taskStartDate2,
+            this.taskEndDate,
+            this.taskDuration2,
+            this.taskRealEndDate,
+            this.workerName3});
             this.dgvClosedTickets.Location = new System.Drawing.Point(14, 8);
             this.dgvClosedTickets.Margin = new System.Windows.Forms.Padding(4);
             this.dgvClosedTickets.Name = "dgvClosedTickets";
@@ -280,6 +389,106 @@
             this.dgvClosedTickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClosedTickets.Size = new System.Drawing.Size(751, 362);
             this.dgvClosedTickets.TabIndex = 0;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.circularProgressBar2);
+            this.tabPage4.Controls.Add(this.label5);
+            this.tabPage4.Controls.Add(this.label3);
+            this.tabPage4.Controls.Add(this.circularProgressBar1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(1987, 904);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Estadísticas";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // circularProgressBar2
+            // 
+            this.circularProgressBar2.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.circularProgressBar2.AnimationSpeed = 500;
+            this.circularProgressBar2.BackColor = System.Drawing.Color.Transparent;
+            this.circularProgressBar2.Font = new System.Drawing.Font("Arial Narrow", 22F, System.Drawing.FontStyle.Bold);
+            this.circularProgressBar2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar2.InnerColor = System.Drawing.Color.White;
+            this.circularProgressBar2.InnerMargin = 2;
+            this.circularProgressBar2.InnerWidth = -1;
+            this.circularProgressBar2.Location = new System.Drawing.Point(735, 96);
+            this.circularProgressBar2.MarqueeAnimationSpeed = 2000;
+            this.circularProgressBar2.Name = "circularProgressBar2";
+            this.circularProgressBar2.OuterColor = System.Drawing.Color.LightGray;
+            this.circularProgressBar2.OuterMargin = -50;
+            this.circularProgressBar2.OuterWidth = 50;
+            this.circularProgressBar2.ProgressColor = System.Drawing.Color.CornflowerBlue;
+            this.circularProgressBar2.ProgressWidth = 40;
+            this.circularProgressBar2.RightToLeftLayout = true;
+            this.circularProgressBar2.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.circularProgressBar2.Size = new System.Drawing.Size(320, 320);
+            this.circularProgressBar2.StartAngle = 270;
+            this.circularProgressBar2.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar2.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.circularProgressBar2.SubscriptText = "";
+            this.circularProgressBar2.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar2.SuperscriptMargin = new System.Windows.Forms.Padding(0);
+            this.circularProgressBar2.SuperscriptText = "";
+            this.circularProgressBar2.TabIndex = 11;
+            this.circularProgressBar2.Text = "3";
+            this.circularProgressBar2.TextMargin = new System.Windows.Forms.Padding(2, 2, 0, 0);
+            this.circularProgressBar2.Value = 50;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(304, 438);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(193, 29);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Tareas abiertas";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(800, 438);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(201, 29);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Tareas cerradas";
+            // 
+            // circularProgressBar1
+            // 
+            this.circularProgressBar1.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.circularProgressBar1.AnimationSpeed = 500;
+            this.circularProgressBar1.BackColor = System.Drawing.Color.Transparent;
+            this.circularProgressBar1.Font = new System.Drawing.Font("Arial Narrow", 22F, System.Drawing.FontStyle.Bold);
+            this.circularProgressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar1.InnerColor = System.Drawing.Color.White;
+            this.circularProgressBar1.InnerMargin = 2;
+            this.circularProgressBar1.InnerWidth = -1;
+            this.circularProgressBar1.Location = new System.Drawing.Point(242, 96);
+            this.circularProgressBar1.MarqueeAnimationSpeed = 2000;
+            this.circularProgressBar1.Name = "circularProgressBar1";
+            this.circularProgressBar1.OuterColor = System.Drawing.Color.LightGray;
+            this.circularProgressBar1.OuterMargin = -50;
+            this.circularProgressBar1.OuterWidth = 50;
+            this.circularProgressBar1.ProgressColor = System.Drawing.Color.CornflowerBlue;
+            this.circularProgressBar1.ProgressWidth = 40;
+            this.circularProgressBar1.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.circularProgressBar1.Size = new System.Drawing.Size(327, 320);
+            this.circularProgressBar1.StartAngle = 270;
+            this.circularProgressBar1.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar1.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.circularProgressBar1.SubscriptText = "";
+            this.circularProgressBar1.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar1.SuperscriptMargin = new System.Windows.Forms.Padding(0);
+            this.circularProgressBar1.SuperscriptText = "";
+            this.circularProgressBar1.TabIndex = 0;
+            this.circularProgressBar1.Text = "3";
+            this.circularProgressBar1.TextMargin = new System.Windows.Forms.Padding(2, 2, 0, 0);
+            this.circularProgressBar1.Value = 50;
             // 
             // tabPage3
             // 
@@ -296,6 +505,17 @@
             this.tabPage3.Size = new System.Drawing.Size(1987, 904);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Colaboradores";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(14, 523);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(300, 99);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 26;
+            this.pictureBox3.TabStop = false;
             // 
             // btnSaveClient
             // 
@@ -349,55 +569,6 @@
             this.dgvCustomerDB.TabIndex = 0;
             this.dgvCustomerDB.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomerDB_CellContentClick);
             // 
-            // Identificador
-            // 
-            this.Identificador.DataPropertyName = "Id";
-            this.Identificador.HeaderText = "Identificador";
-            this.Identificador.Name = "Identificador";
-            this.Identificador.ReadOnly = true;
-            // 
-            // taskName
-            // 
-            this.taskName.DataPropertyName = "taskName";
-            this.taskName.HeaderText = "Tarea";
-            this.taskName.Name = "taskName";
-            this.taskName.ReadOnly = true;
-            // 
-            // taskDescription
-            // 
-            this.taskDescription.DataPropertyName = "taskDescription";
-            this.taskDescription.HeaderText = "Descripción";
-            this.taskDescription.Name = "taskDescription";
-            this.taskDescription.ReadOnly = true;
-            // 
-            // FechaInicio
-            // 
-            this.FechaInicio.DataPropertyName = "taskStartDate";
-            this.FechaInicio.HeaderText = "Fecha inicio";
-            this.FechaInicio.Name = "FechaInicio";
-            this.FechaInicio.ReadOnly = true;
-            // 
-            // FechaFin
-            // 
-            this.FechaFin.DataPropertyName = "taskEndDate";
-            this.FechaFin.HeaderText = "Fecha final";
-            this.FechaFin.Name = "FechaFin";
-            this.FechaFin.ReadOnly = true;
-            // 
-            // taskDuration
-            // 
-            this.taskDuration.DataPropertyName = "taskDuration";
-            this.taskDuration.HeaderText = "Duración estimada";
-            this.taskDuration.Name = "taskDuration";
-            this.taskDuration.ReadOnly = true;
-            // 
-            // workerName
-            // 
-            this.workerName.DataPropertyName = "workerName";
-            this.workerName.HeaderText = "Colaborador";
-            this.workerName.Name = "workerName";
-            this.workerName.ReadOnly = true;
-            // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
@@ -422,159 +593,61 @@
             this.workerIsActive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.workerIsActive.Width = 200;
             // 
-            // pictureBox1
+            // Id2
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(14, 523);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(300, 99);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 25;
-            this.pictureBox1.TabStop = false;
+            this.Id2.DataPropertyName = "Id";
+            this.Id2.HeaderText = "Identificador";
+            this.Id2.Name = "Id2";
+            this.Id2.ReadOnly = true;
             // 
-            // pictureBox2
+            // Taks2
             // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(14, 523);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(300, 99);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 26;
-            this.pictureBox2.TabStop = false;
+            this.Taks2.DataPropertyName = "taskName";
+            this.Taks2.HeaderText = "Tarea";
+            this.Taks2.Name = "Taks2";
+            this.Taks2.ReadOnly = true;
             // 
-            // pictureBox3
+            // taskDescription2
             // 
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(14, 523);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(300, 99);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 26;
-            this.pictureBox3.TabStop = false;
+            this.taskDescription2.DataPropertyName = "taskDescription";
+            this.taskDescription2.HeaderText = "Descripción";
+            this.taskDescription2.Name = "taskDescription2";
+            this.taskDescription2.ReadOnly = true;
             // 
-            // tbTaskDescription
+            // taskStartDate2
             // 
-            this.tbTaskDescription.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTaskDescription.Location = new System.Drawing.Point(783, 390);
-            this.tbTaskDescription.Margin = new System.Windows.Forms.Padding(4);
-            this.tbTaskDescription.Multiline = true;
-            this.tbTaskDescription.Name = "tbTaskDescription";
-            this.tbTaskDescription.Size = new System.Drawing.Size(570, 124);
-            this.tbTaskDescription.TabIndex = 26;
+            this.taskStartDate2.DataPropertyName = "taskStartDate";
+            this.taskStartDate2.HeaderText = "Fecha inicio";
+            this.taskStartDate2.Name = "taskStartDate2";
+            this.taskStartDate2.ReadOnly = true;
             // 
-            // label1
+            // taskEndDate
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(773, 8);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 29);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Fecha";
+            this.taskEndDate.DataPropertyName = "taskEndDate";
+            this.taskEndDate.HeaderText = "Fecha fin";
+            this.taskEndDate.Name = "taskEndDate";
+            this.taskEndDate.ReadOnly = true;
             // 
-            // tabPage4
+            // taskDuration2
             // 
-            this.tabPage4.Controls.Add(this.circularProgressBar2);
-            this.tabPage4.Controls.Add(this.label5);
-            this.tabPage4.Controls.Add(this.label3);
-            this.tabPage4.Controls.Add(this.circularProgressBar1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1987, 904);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Estadísticas";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.taskDuration2.DataPropertyName = "taskDuration";
+            this.taskDuration2.HeaderText = "Duración estimada";
+            this.taskDuration2.Name = "taskDuration2";
+            this.taskDuration2.ReadOnly = true;
             // 
-            // circularProgressBar1
+            // taskRealEndDate
             // 
-            this.circularProgressBar1.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
-            this.circularProgressBar1.AnimationSpeed = 500;
-            this.circularProgressBar1.BackColor = System.Drawing.Color.Transparent;
-            this.circularProgressBar1.Font = new System.Drawing.Font("Arial Narrow", 22F, System.Drawing.FontStyle.Bold);
-            this.circularProgressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.circularProgressBar1.InnerColor = System.Drawing.Color.White;
-            this.circularProgressBar1.InnerMargin = 2;
-            this.circularProgressBar1.InnerWidth = -1;
-            this.circularProgressBar1.Location = new System.Drawing.Point(242, 96);
-            this.circularProgressBar1.MarqueeAnimationSpeed = 2000;
-            this.circularProgressBar1.Name = "circularProgressBar1";
-            this.circularProgressBar1.OuterColor = System.Drawing.Color.LightGray;
-            this.circularProgressBar1.OuterMargin = -50;
-            this.circularProgressBar1.OuterWidth = 50;
-            this.circularProgressBar1.ProgressColor = System.Drawing.Color.CornflowerBlue;
-            this.circularProgressBar1.ProgressWidth = 40;
-            this.circularProgressBar1.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
-            this.circularProgressBar1.Size = new System.Drawing.Size(327, 320);
-            this.circularProgressBar1.StartAngle = 270;
-            this.circularProgressBar1.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.circularProgressBar1.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
-            this.circularProgressBar1.SubscriptText = "";
-            this.circularProgressBar1.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.circularProgressBar1.SuperscriptMargin = new System.Windows.Forms.Padding(0);
-            this.circularProgressBar1.SuperscriptText = "";
-            this.circularProgressBar1.TabIndex = 0;
-            this.circularProgressBar1.Text = "3";
-            this.circularProgressBar1.TextMargin = new System.Windows.Forms.Padding(2, 2, 0, 0);
-            this.circularProgressBar1.Value = 50;
+            this.taskRealEndDate.DataPropertyName = "taskRealEndDate";
+            this.taskRealEndDate.HeaderText = "Fecha final real";
+            this.taskRealEndDate.Name = "taskRealEndDate";
+            this.taskRealEndDate.ReadOnly = true;
             // 
-            // label3
+            // workerName3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(800, 438);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(201, 29);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Tareas cerradas";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(304, 438);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(193, 29);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Tareas abiertas";
-            // 
-            // circularProgressBar2
-            // 
-            this.circularProgressBar2.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
-            this.circularProgressBar2.AnimationSpeed = 500;
-            this.circularProgressBar2.BackColor = System.Drawing.Color.Transparent;
-            this.circularProgressBar2.Font = new System.Drawing.Font("Arial Narrow", 22F, System.Drawing.FontStyle.Bold);
-            this.circularProgressBar2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.circularProgressBar2.InnerColor = System.Drawing.Color.White;
-            this.circularProgressBar2.InnerMargin = 2;
-            this.circularProgressBar2.InnerWidth = -1;
-            this.circularProgressBar2.Location = new System.Drawing.Point(735, 96);
-            this.circularProgressBar2.MarqueeAnimationSpeed = 2000;
-            this.circularProgressBar2.Name = "circularProgressBar2";
-            this.circularProgressBar2.OuterColor = System.Drawing.Color.LightGray;
-            this.circularProgressBar2.OuterMargin = -50;
-            this.circularProgressBar2.OuterWidth = 50;
-            this.circularProgressBar2.ProgressColor = System.Drawing.Color.CornflowerBlue;
-            this.circularProgressBar2.ProgressWidth = 40;
-            this.circularProgressBar2.RightToLeftLayout = true;
-            this.circularProgressBar2.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
-            this.circularProgressBar2.Size = new System.Drawing.Size(320, 320);
-            this.circularProgressBar2.StartAngle = 270;
-            this.circularProgressBar2.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.circularProgressBar2.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
-            this.circularProgressBar2.SubscriptText = "";
-            this.circularProgressBar2.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.circularProgressBar2.SuperscriptMargin = new System.Windows.Forms.Padding(0);
-            this.circularProgressBar2.SuperscriptText = "";
-            this.circularProgressBar2.TabIndex = 11;
-            this.circularProgressBar2.Text = "3";
-            this.circularProgressBar2.TextMargin = new System.Windows.Forms.Padding(2, 2, 0, 0);
-            this.circularProgressBar2.Value = 50;
+            this.workerName3.DataPropertyName = "workerName";
+            this.workerName3.HeaderText = "Colaborador";
+            this.workerName3.Name = "workerName3";
+            this.workerName3.ReadOnly = true;
             // 
             // Main
             // 
@@ -588,22 +661,23 @@
             this.MinimizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Task Manager";
+            this.Text = "Gestión de Tareas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLiveTickets)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClosedTickets)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerDB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClosedTickets)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerDB)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -650,5 +724,13 @@
         private System.Windows.Forms.Label label3;
         private CircularProgressBar.CircularProgressBar circularProgressBar1;
         private CircularProgressBar.CircularProgressBar circularProgressBar2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Taks2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn taskDescription2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn taskStartDate2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn taskEndDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn taskDuration2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn taskRealEndDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn workerName3;
     }
 }
