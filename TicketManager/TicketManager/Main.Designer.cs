@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbTaskDescription = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -55,6 +56,14 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnExcel = new System.Windows.Forms.Button();
             this.dgvClosedTickets = new System.Windows.Forms.DataGridView();
+            this.Id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Taks2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskDescription2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskStartDate2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskDuration2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taskRealEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.workerName3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.circularProgressBar2 = new CircularProgressBar.CircularProgressBar();
             this.label5 = new System.Windows.Forms.Label();
@@ -69,14 +78,16 @@
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.workerName2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.workerIsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Taks2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taskDescription2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taskStartDate2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taskEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taskDuration2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taskRealEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.workerName3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btnGuardarUsuario = new System.Windows.Forms.Button();
+            this.tbUsuario = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.tbPass = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -88,6 +99,9 @@
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerDB)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -96,6 +110,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(-5, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
@@ -106,6 +121,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.tbTaskDescription);
             this.tabPage1.Controls.Add(this.pictureBox1);
@@ -126,6 +142,18 @@
             this.tabPage1.Size = new System.Drawing.Size(1987, 904);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Tareas abiertas";
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Location = new System.Drawing.Point(14, 378);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(80, 80);
+            this.button1.TabIndex = 28;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -359,10 +387,10 @@
             // 
             this.btnExcel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExcel.BackgroundImage")));
             this.btnExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnExcel.Location = new System.Drawing.Point(773, 8);
+            this.btnExcel.Location = new System.Drawing.Point(14, 378);
             this.btnExcel.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(224, 106);
+            this.btnExcel.Size = new System.Drawing.Size(80, 80);
             this.btnExcel.TabIndex = 4;
             this.btnExcel.UseVisualStyleBackColor = true;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
@@ -389,6 +417,62 @@
             this.dgvClosedTickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClosedTickets.Size = new System.Drawing.Size(751, 362);
             this.dgvClosedTickets.TabIndex = 0;
+            // 
+            // Id2
+            // 
+            this.Id2.DataPropertyName = "Id";
+            this.Id2.HeaderText = "Identificador";
+            this.Id2.Name = "Id2";
+            this.Id2.ReadOnly = true;
+            // 
+            // Taks2
+            // 
+            this.Taks2.DataPropertyName = "taskName";
+            this.Taks2.HeaderText = "Tarea";
+            this.Taks2.Name = "Taks2";
+            this.Taks2.ReadOnly = true;
+            // 
+            // taskDescription2
+            // 
+            this.taskDescription2.DataPropertyName = "taskDescription";
+            this.taskDescription2.HeaderText = "Descripción";
+            this.taskDescription2.Name = "taskDescription2";
+            this.taskDescription2.ReadOnly = true;
+            // 
+            // taskStartDate2
+            // 
+            this.taskStartDate2.DataPropertyName = "taskStartDate";
+            this.taskStartDate2.HeaderText = "Fecha inicio";
+            this.taskStartDate2.Name = "taskStartDate2";
+            this.taskStartDate2.ReadOnly = true;
+            // 
+            // taskEndDate
+            // 
+            this.taskEndDate.DataPropertyName = "taskEndDate";
+            this.taskEndDate.HeaderText = "Fecha fin";
+            this.taskEndDate.Name = "taskEndDate";
+            this.taskEndDate.ReadOnly = true;
+            // 
+            // taskDuration2
+            // 
+            this.taskDuration2.DataPropertyName = "taskDuration";
+            this.taskDuration2.HeaderText = "Duración estimada";
+            this.taskDuration2.Name = "taskDuration2";
+            this.taskDuration2.ReadOnly = true;
+            // 
+            // taskRealEndDate
+            // 
+            this.taskRealEndDate.DataPropertyName = "taskRealEndDate";
+            this.taskRealEndDate.HeaderText = "Fecha final real";
+            this.taskRealEndDate.Name = "taskRealEndDate";
+            this.taskRealEndDate.ReadOnly = true;
+            // 
+            // workerName3
+            // 
+            this.workerName3.DataPropertyName = "workerName";
+            this.workerName3.HeaderText = "Colaborador";
+            this.workerName3.Name = "workerName3";
+            this.workerName3.ReadOnly = true;
             // 
             // tabPage4
             // 
@@ -593,61 +677,122 @@
             this.workerIsActive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.workerIsActive.Width = 200;
             // 
-            // Id2
+            // tabPage5
             // 
-            this.Id2.DataPropertyName = "Id";
-            this.Id2.HeaderText = "Identificador";
-            this.Id2.Name = "Id2";
-            this.Id2.ReadOnly = true;
+            this.tabPage5.Controls.Add(this.tbPass);
+            this.tabPage5.Controls.Add(this.label7);
+            this.tabPage5.Controls.Add(this.pictureBox4);
+            this.tabPage5.Controls.Add(this.btnGuardarUsuario);
+            this.tabPage5.Controls.Add(this.tbUsuario);
+            this.tabPage5.Controls.Add(this.label6);
+            this.tabPage5.Controls.Add(this.dgvUsuarios);
+            this.tabPage5.Location = new System.Drawing.Point(4, 25);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1987, 904);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Usuarios";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // Taks2
+            // pictureBox4
             // 
-            this.Taks2.DataPropertyName = "taskName";
-            this.Taks2.HeaderText = "Tarea";
-            this.Taks2.Name = "Taks2";
-            this.Taks2.ReadOnly = true;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(14, 523);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(300, 99);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 31;
+            this.pictureBox4.TabStop = false;
             // 
-            // taskDescription2
+            // btnGuardarUsuario
             // 
-            this.taskDescription2.DataPropertyName = "taskDescription";
-            this.taskDescription2.HeaderText = "Descripción";
-            this.taskDescription2.Name = "taskDescription2";
-            this.taskDescription2.ReadOnly = true;
+            this.btnGuardarUsuario.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarUsuario.Location = new System.Drawing.Point(1020, 154);
+            this.btnGuardarUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGuardarUsuario.Name = "btnGuardarUsuario";
+            this.btnGuardarUsuario.Size = new System.Drawing.Size(163, 55);
+            this.btnGuardarUsuario.TabIndex = 34;
+            this.btnGuardarUsuario.Text = "Guardar";
+            this.btnGuardarUsuario.UseVisualStyleBackColor = true;
+            this.btnGuardarUsuario.Click += new System.EventHandler(this.btnGuardarUsuario_Click);
             // 
-            // taskStartDate2
+            // tbUsuario
             // 
-            this.taskStartDate2.DataPropertyName = "taskStartDate";
-            this.taskStartDate2.HeaderText = "Fecha inicio";
-            this.taskStartDate2.Name = "taskStartDate2";
-            this.taskStartDate2.ReadOnly = true;
+            this.tbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUsuario.Location = new System.Drawing.Point(778, 41);
+            this.tbUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.tbUsuario.Name = "tbUsuario";
+            this.tbUsuario.Size = new System.Drawing.Size(405, 34);
+            this.tbUsuario.TabIndex = 29;
             // 
-            // taskEndDate
+            // label6
             // 
-            this.taskEndDate.DataPropertyName = "taskEndDate";
-            this.taskEndDate.HeaderText = "Fecha fin";
-            this.taskEndDate.Name = "taskEndDate";
-            this.taskEndDate.ReadOnly = true;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(773, 8);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(104, 29);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Usuario";
             // 
-            // taskDuration2
+            // dgvUsuarios
             // 
-            this.taskDuration2.DataPropertyName = "taskDuration";
-            this.taskDuration2.HeaderText = "Duración estimada";
-            this.taskDuration2.Name = "taskDuration2";
-            this.taskDuration2.ReadOnly = true;
+            this.dgvUsuarios.AllowUserToAddRows = false;
+            this.dgvUsuarios.AllowUserToDeleteRows = false;
+            this.dgvUsuarios.BackgroundColor = System.Drawing.Color.LightSteelBlue;
+            this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewCheckBoxColumn1});
+            this.dgvUsuarios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvUsuarios.Location = new System.Drawing.Point(14, 8);
+            this.dgvUsuarios.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.ReadOnly = true;
+            this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUsuarios.Size = new System.Drawing.Size(751, 362);
+            this.dgvUsuarios.TabIndex = 27;
             // 
-            // taskRealEndDate
+            // tbPass
             // 
-            this.taskRealEndDate.DataPropertyName = "taskRealEndDate";
-            this.taskRealEndDate.HeaderText = "Fecha final real";
-            this.taskRealEndDate.Name = "taskRealEndDate";
-            this.taskRealEndDate.ReadOnly = true;
+            this.tbPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPass.Location = new System.Drawing.Point(778, 112);
+            this.tbPass.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPass.Name = "tbPass";
+            this.tbPass.PasswordChar = '*';
+            this.tbPass.Size = new System.Drawing.Size(405, 34);
+            this.tbPass.TabIndex = 30;
             // 
-            // workerName3
+            // label7
             // 
-            this.workerName3.DataPropertyName = "workerName";
-            this.workerName3.HeaderText = "Colaborador";
-            this.workerName3.Name = "workerName3";
-            this.workerName3.ReadOnly = true;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(773, 79);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(149, 29);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "Contraseña";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "username";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Usuario";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "userIsEnabled";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Usuario habilitado/deshabilitado";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCheckBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewCheckBoxColumn1.Visible = false;
+            this.dataGridViewCheckBoxColumn1.Width = 200;
             // 
             // Main
             // 
@@ -678,6 +823,10 @@
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerDB)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -732,5 +881,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn taskDuration2;
         private System.Windows.Forms.DataGridViewTextBoxColumn taskRealEndDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn workerName3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TextBox tbPass;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button btnGuardarUsuario;
+        private System.Windows.Forms.TextBox tbUsuario;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView dgvUsuarios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
     }
 }

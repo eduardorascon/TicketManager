@@ -37,6 +37,7 @@ namespace TicketManager
             displayClosedTasks();
             displayEnabledWorkers();
             displayAllWorkers();
+            displayUsers();
 
             updateGraphs();
         }
@@ -117,6 +118,12 @@ namespace TicketManager
             dgvClosedTickets.DataSource = t.getAllClosedTasks();
         }
 
+        private void displayUsers()
+        {
+            UserLogin u = new UserLogin();
+            dgvUsuarios.DataSource = u.getAllUsernames();
+        }
+
         private void closeTask(int taskToClose)
         {
             Task t = new Task();
@@ -145,14 +152,14 @@ namespace TicketManager
             app.Visible = true;
             worksheet = workbook.Sheets["Sheet1"];
             worksheet = workbook.ActiveSheet;
-            worksheet.Name = "Exported from Ticket Manager";
+            worksheet.Name = "Exportación";
 
             for (int i = 1; i < dgvClosedTickets.Columns.Count + 1; i++)
             {
                 worksheet.Cells[1, i] = dgvClosedTickets.Columns[i - 1].HeaderText;
             }
 
-            for (int i = 0; i < dgvClosedTickets.Rows.Count - 1; i++)
+            for (int i = 0; i < dgvClosedTickets.Rows.Count; i++)
             {
                 for (int j = 0; j < dgvClosedTickets.Columns.Count; j++)
                 {
@@ -160,9 +167,8 @@ namespace TicketManager
                 }
             }
 
-            workbook.SaveAs("c:\\ClosedTickets.xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing,
+            workbook.SaveAs("c:\\TareasCerradas.xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing,
                 Type.Missing, Type.Missing);
-
         }
 
         private void dgvCustomerDB_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -181,6 +187,50 @@ namespace TicketManager
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            //open excel and transfer data from datagridview
+            Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+            Microsoft.Office.Interop.Excel._Worksheet
+                worksheet = null;
+            app.Visible = true;
+            worksheet = workbook.Sheets["Sheet1"];
+            worksheet = workbook.ActiveSheet;
+            worksheet.Name = "Exportación";
+
+            for (int i = 1; i < dgvLiveTickets.Columns.Count + 1; i++)
+            {
+                worksheet.Cells[1, i] = dgvLiveTickets.Columns[i - 1].HeaderText;
+            }
+
+            for (int i = 0; i < dgvLiveTickets.Rows.Count; i++)
+            {
+                for (int j = 0; j < dgvLiveTickets.Columns.Count; j++)
+                {
+                    worksheet.Cells[i + 2, j + 1] = dgvLiveTickets.Rows[i].Cells[j].Value.ToString();
+                }
+            }
+
+            workbook.SaveAs("c:\\TareasAbiertas.xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing);
+        }
+
+        private void btnGuardarUsuario_Click(object sender, EventArgs e)
+        {
+            UserLogin u = new UserLogin();
+
+            bool result = u.saveUser(tbUsuario.Text, tbPass.Text);
+
+            displayUsers();
+
+            tbUsuario.Text = "";
+            tbPass.Text = "";
+
+            MessageBox.Show("Registro agregado");
         }
     }
 }

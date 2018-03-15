@@ -45,7 +45,7 @@ namespace TicketManager.DataLayer
                 {
                     con.Open();
                     SqlCommand cmd = con.CreateCommand();
-                    cmd.CommandText = @"select * from users";
+                    cmd.CommandText = @"select username from users order by username";
 
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
@@ -57,6 +57,29 @@ namespace TicketManager.DataLayer
             catch (Exception)
             {
                 return null;
+            }
+        }
+
+        public bool saveUser(string username, string pass)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(Database.connectionString))
+                {
+                    con.Open();
+                    SqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = @"insert into users(username, password) values(@username, @password)";
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", pass);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }
